@@ -1,0 +1,7 @@
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Release/net7.0/PubTmp/Out/ServerBackAgain
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Release/net7.0/PubTmp/Out/appsettings.Development.json
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Release/net7.0/PubTmp/Out/appsettings.json
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Release/net7.0/PubTmp/Out/ServerBackAgain.dll
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Release/net7.0/PubTmp/Out/ServerBackAgain.deps.json
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Release/net7.0/PubTmp/Out/ServerBackAgain.runtimeconfig.json
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Release/net7.0/PubTmp/Out/ServerBackAgain.pdb
