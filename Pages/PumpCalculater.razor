@@ -4,67 +4,77 @@
 
 <h1>Counter PumpCalculater</h1>
 
-<div class="container text-center">
+<div class="container text-left">
     <div class="row">
         <div class="col-sm-4">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">
-                            <select class="form-control" @onchange="@OnSelect" style="width:150px">
-                                @foreach (var template in templates)
-                                {
-                                    <option value=@template>@template</option>
-                                }
-                            </select>
-                        </th>
+                        <th scope="col">Grey Cells to be completed by salesman:</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
                         <td>
-                            <select class="form-control" @onchange="@OnSelectInt" style="width:150px">
-                                @foreach (var inttemplate in inttemplates)
-                                {
-                                    <option value=@inttemplate>@inttemplate</option>
-                                }
-                            </select>
+                            <table class="table">
+
+                                <tbody>
+                                    <!--
+    <tr>
+        <td>fred1234567890</td>
+        <td>fred1234567890</td>
+        <td>fred1234567890</td>
+        <td>fred</td>
+
+    </tr>-->
+                                    <tr>
+                                        <!--scope="row" colspan="3"-->
+                                        <th>Number of apartments</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.apartments" @onchange="@OnSelectApartments" style="width:50px">
+                                                @foreach (var apartment in apartments)
+                                                {
+                                                    <option value=@apartment>@apartment</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Number of storeys</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.stories" @onchange="@OnSelectStories" style="width:50px">
+                                                @foreach (var storey in stories)
+                                                {
+                                                    <option value=@storey>@storey</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="2" class="text-center">Delivery points</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Sink</th>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>
-                            <select class="form-control" value="@pumpSelections.stories" @onchange="@OnSelectStories" style="width:150px">
-                                @foreach (var storey in stories)
-                                {
-                                    <option value=@storey>@storey</option>
-                                }
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>twitter</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 text-center">
             Column
             <p role="status">Total: @currentCount</p>
             <h5>Selected Country is: @selectedString</h5>
             <h5>Selected Value: @selectedValue</h5>
-            <h5>New Value: @newValue</h5>
-            <h5>New Value: @pumpSelections.stories</h5>
+            <h5>apartment: @pumpSelections.apartments</h5>
+            <h5>stories: @pumpSelections.stories</h5>
+            <h5>flow: @pumpDuty.flow</h5>
+            <h5>head: @pumpDuty.head</h5>
+
         </div>
 
     </div>
@@ -76,14 +86,30 @@
     -->
 
 @code {
-    List<string> templates = new List<string>() { "America", "China", "India", "Russia", "England" };
-    List<int> inttemplates = new List<int>() { 1,2,3,4,5,6,7,8,9,10,11,12};
+    protected override void OnInitialized()
+    {
+        calculateDuty();
+        base.OnInitialized();
+    }
+
+
+    //   List<string> templates = new List<string>() { "America", "China", "India", "Russia", "England" };
+    List<int> apartments = new List<int>() { 1,2,3,4,5,6,7,8,9,10,11,12};
     List<int> stories = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     string selectedString = "China";
     string selectedValue = "10";
     int newValue;
 
     private int currentCount = 0;
+
+    struct PumpDuty
+    {
+        public float flow;
+        public float head;
+    }
+
+    PumpDuty pumpDuty = new PumpDuty();
+
 
     struct PumpSelections
     {
@@ -100,27 +126,42 @@
     PumpSelections pumpSelections = new PumpSelections(10,9);
     //pumpSelections.stories = 10;
 
+
+    public void calculateDuty ()
+    {
+        pumpDuty.flow = (float) pumpSelections.stories * 2.0F;
+        pumpDuty.head = (float) pumpSelections.stories / 2.0F;
+    }
+
+    /*   void OnStartup(ChangeEventArgs e)
+       {
+           calculateDuty();
+       }*/
+
+    void OnSelectApartments(ChangeEventArgs e)
+    {
+
+        pumpSelections.apartments = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+
     void OnSelectStories(ChangeEventArgs e)
     {
         pumpSelections.stories = int.Parse(e.Value.ToString());
+        calculateDuty();
     }
 
-    void OnSelectInt(ChangeEventArgs e)
-    {
 
-        selectedValue = e.Value.ToString();
-        newValue = int.Parse(selectedValue);
+    /*   void OnSelect(ChangeEventArgs e)
+       {
+           selectedString = e.Value.ToString();
 
-    }
-    void OnSelect(ChangeEventArgs e)
-    {
-        selectedString = e.Value.ToString();
-
-        Console.WriteLine("The selected country is : " + selectedString);
-    }
-    //  private void IncrementCount()
-    //  {
-    //      currentCount++;
-    //  }
+           Console.WriteLine("The selected country is : " + selectedString);
+       }
+       //  private void IncrementCount()
+       //  {
+       //      currentCount++;
+       //  }
+    */
 }
 
