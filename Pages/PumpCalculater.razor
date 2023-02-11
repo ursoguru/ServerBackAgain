@@ -1,12 +1,11 @@
 ﻿@page "/pump123456789101112"
-
-<PageTitle>Counter One</PageTitle>
+<!--<PageTitle>Counter One</PageTitle>-->
 
 <h1>Counter PumpCalculater</h1>
 
 <div class="container text-left">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <table class="table">
                 <thead>
                     <tr>
@@ -31,7 +30,7 @@
                                         <!--scope="row" colspan="3"-->
                                         <th>Number of apartments</th>
                                         <td>
-                                            <select class="form-control" value="@pumpSelections.apartments" @onchange="@OnSelectApartments" style="width:50px">
+                                            <select class="form-control" value="@pumpSelections.apartments" @onchange="@OnSelectApartments" style="width:200px">
                                                 @foreach (var apartment in apartments)
                                                 {
                                                     <option value=@apartment>@apartment</option>
@@ -42,7 +41,7 @@
                                     <tr>
                                         <th>Number of storeys</th>
                                         <td>
-                                            <select class="form-control" value="@pumpSelections.stories" @onchange="@OnSelectStories" style="width:50px">
+                                            <select class="form-control" value="@pumpSelections.stories" @onchange="@OnSelectStories" style="width:200px">
                                                 @foreach (var storey in stories)
                                                 {
                                                     <option value=@storey>@storey</option>
@@ -56,7 +55,125 @@
                                     </tr>
                                     <tr>
                                         <th>Sink</th>
-                                        <td></td>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.sinks" @onchange="@OnSelectSinks" style="width:200px">
+                                                @foreach (var sink in sinks)
+                                                {
+                                                    <option value=@sink>@sink</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Dishwasher</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.dishwashers" @onchange="@OnSelectDishwashers" style="width:200px">
+                                                @foreach (var dishwasher in dishwashers)
+                                                {
+                                                    <option value=@dishwasher>@dishwasher</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Washing Machines</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.washingmachines" @onchange="@OnSelectWashingmachines" style="width:200px">
+                                                @foreach (var washingmachine in washingmachines)
+                                                {
+                                                    <option value=@washingmachine>@washingmachine</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shower</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.showers" @onchange="@OnSelectShowers" style="width:200px">
+                                                @foreach (var shower in showers)
+                                                {
+                                                    <option value=@shower>@shower</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bathtub</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.bathtubs" @onchange="@OnSelectBathtubs" style="width:200px">
+                                                @foreach (var bathtub in bathtubs)
+                                                {
+                                                    <option value=@bathtub>@bathtub</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Washbasin</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.washbasins" @onchange="@OnSelectWashbasins" style="width:200px">
+                                                @foreach (var washbasin in washbasins)
+                                                {
+                                                    <option value=@washbasin>@washbasin</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bidet</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.bidets" @onchange="@OnSelectBidets" style="width:200px">
+                                                @foreach (var bidet in bidets)
+                                                {
+                                                    <option value=@bidet>@bidet</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Toilet system</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.toilet" @onchange="@OnSelectToilet" style="width:200px">
+                                                @foreach (var toilet in toilets)
+                                                {
+                                                    <option value=@toilet>@toilet</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" class="text-center">Friction Loss</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Pipe Type</th>
+                                        <td>
+                                            <select class="form-control" value="@pumpSelections.pipe" @onchange="@OnSelectPipe" style="width:200px">
+                                                @foreach (var pipe in pipes)
+                                                {
+                                                    <option value=@pipe>@pipe</option>
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pipe NB (mm)</th>
+                                        <td>
+                                            <div class="input-group mb-3">
+
+                                                <input type="text" class="form-control" @onchange="@OnEditPipeWidth" style="width:200px">
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pipe length (m)</th>
+                                        <td>
+                                            <div class="input-group mb-3">
+
+                                                <input type="text" class="form-control" @onchange="@OnEditPipeLength">
+
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -65,15 +182,17 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-8 text-center">
+        <div class="col-sm-6 text-center">
             Column
             <p role="status">Total: @currentCount</p>
-            <h5>Selected Country is: @selectedString</h5>
-            <h5>Selected Value: @selectedValue</h5>
+            <h5>" " </h5>" "<h5> </h5>" "<h5> </h5>" "<h5> </h5>" "<h5> </h5>" "<h5> </h5>" "<h5>" " </h5>
+            <h5>toilet: @pumpSelections.toilet</h5>
             <h5>apartment: @pumpSelections.apartments</h5>
             <h5>stories: @pumpSelections.stories</h5>
             <h5>flow: @pumpDuty.flow</h5>
             <h5>head: @pumpDuty.head</h5>
+            <h5>pipe width: @pumpSelections.pipewidth</h5>
+            <h5>pipe length: @pumpSelections.pipelength</h5>
 
         </div>
 
@@ -93,9 +212,22 @@
     }
 
 
-    //   List<string> templates = new List<string>() { "America", "China", "India", "Russia", "England" };
-    List<int> apartments = new List<int>() { 1,2,3,4,5,6,7,8,9,10,11,12};
+
+    List<int> apartments = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
     List<int> stories = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    List<int> sinks = new List<int>() { 0, 1, 2, 3, 4 };
+    List<int> dishwashers = new List<int>() { 0, 1, 2, 3 };
+    List<int> washingmachines = new List<int>() { 0, 1, 2, 3, 4 };
+    List<int> showers = new List<int>() { 0, 1, 2, 3, 4 };
+    List<int> bathtubs = new List<int>() { 0, 1, 2, 3, 4 };
+    List<int> washbasins = new List<int>() { 0, 1, 2, 3, 4, 5 };
+    List<int> bidets = new List<int>() { 0, 1, 2 };
+
+
+    // enum Toilets { FC1, FM1, FC2, FM2 };
+
+    List<string> toilets = new List<string>() { "1 x Flush tank / Cistern", "1 x Flush Master", "2 x Flush tank / Cistern", "2 x Flush Masters" };
+    List<string> pipes = new List<string>() { "Steel Pipe ( New )", "Steel Pipe ( old )", "UPVC Pipe", "Asbestos cement" };
     string selectedString = "China";
     string selectedValue = "10";
     int newValue;
@@ -115,22 +247,54 @@
     {
         public int apartments;
         public int stories;
+        public int sinks;
+        public int dishwashers;
+        public int washingmachines;
+        public int showers;
+        public int bathtubs;
+        public int washbasins;
+        public int bidets;
+        public string toilet;
+        public string pipe;
+        public float pipewidth;
+        public float pipelength;
 
-        public PumpSelections (int a, int b)
+
+        public PumpSelections(int ten, int two, int one, int zero, string toiletSystem, string pipeSystem)
         {
-            apartments = a;
-            stories = b;
+            apartments = ten;
+            stories = two;
+            sinks = two;
+            dishwashers = one;
+            washingmachines = one;
+            showers = one;
+            bathtubs = one;
+            washbasins = two;
+            bidets = zero;
+            toilet = toiletSystem;
+            pipe = pipeSystem;
+
         }
     }
 
-    PumpSelections pumpSelections = new PumpSelections(10,9);
+
+    PumpSelections pumpSelections = new PumpSelections(10, 2, 1, 0, "2 x Flush tank / Cistern", "Steel Pipe ( old )");
     //pumpSelections.stories = 10;
 
 
-    public void calculateDuty ()
+    public void calculateDuty()
     {
-        pumpDuty.flow = (float) pumpSelections.stories * 2.0F;
-        pumpDuty.head = (float) pumpSelections.stories / 2.0F;
+        switch (pumpSelections.toilet)
+        {
+            case "1 x Flush tank / Cistern":
+                pumpDuty.flow = (float)pumpSelections.stories * 10.0F;
+                break;
+            default:
+                pumpDuty.flow = (float)pumpSelections.stories * 2.0F;
+                break;
+        }
+        // pumpDuty.flow = (float) pumpSelections.stories * 2.0F;
+        pumpDuty.head = (float)pumpSelections.stories / 2.0F;
     }
 
     /*   void OnStartup(ChangeEventArgs e)
@@ -150,6 +314,64 @@
         pumpSelections.stories = int.Parse(e.Value.ToString());
         calculateDuty();
     }
+
+    void OnSelectSinks(ChangeEventArgs e)
+    {
+        pumpSelections.sinks = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+    void OnSelectDishwashers(ChangeEventArgs e)
+    {
+        pumpSelections.dishwashers = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+    void OnSelectWashingmachines(ChangeEventArgs e)
+    {
+        pumpSelections.dishwashers = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+    void OnSelectShowers(ChangeEventArgs e)
+    {
+        pumpSelections.showers = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+    void OnSelectBathtubs(ChangeEventArgs e)
+    {
+        pumpSelections.bathtubs = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+    void OnSelectWashbasins(ChangeEventArgs e)
+    {
+        pumpSelections.washbasins = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+    void OnSelectBidets(ChangeEventArgs e)
+    {
+        pumpSelections.bidets = int.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+
+    void OnSelectToilet(ChangeEventArgs e)
+    {
+        pumpSelections.toilet = e.Value.ToString();
+        calculateDuty();
+    }
+    void OnSelectPipe(ChangeEventArgs e)
+    {
+        pumpSelections.pipe = e.Value.ToString();
+        calculateDuty();
+    }
+    void OnEditPipeWidth(ChangeEventArgs e)
+    {
+        pumpSelections.pipewidth = float.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+    void OnEditPipeLength(ChangeEventArgs e)
+    {
+        pumpSelections.pipelength = float.Parse(e.Value.ToString());
+        calculateDuty();
+    }
+
 
 
     /*   void OnSelect(ChangeEventArgs e)
