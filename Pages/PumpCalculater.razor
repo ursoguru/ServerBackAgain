@@ -182,18 +182,59 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-6 text-center">
-            Column
-            <p role="status">Total: @currentCount</p>
-            <h5>" " </h5>" "<h5> </h5>" "<h5> </h5>" "<h5> </h5>" "<h5> </h5>" "<h5> </h5>" "<h5>" " </h5>
-            <h5>toilet: @pumpSelections.toilet</h5>
-            <h5>apartment: @pumpSelections.apartments</h5>
-            <h5>stories: @pumpSelections.stories</h5>
-            <h5>flow: @pumpDuty.flow</h5>
-            <h5>head: @pumpDuty.head</h5>
-            <h5>pipe width: @pumpSelections.pipewidth</h5>
-            <h5>pipe length: @pumpSelections.pipelength</h5>
-            
+        <div class="col-sm-6 text-left">
+            <div class="d-none d-sm-block">
+                 <div class="box"></div>
+                
+                <!-- <p role="status">Total: @currentCount</p> -->
+
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Total Pump Duty:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table class="table">
+
+                                    <tbody>
+
+                                        <tr>
+                                            <th>Total Required flow (m³/h)</th>
+                                            <td>
+                                                @pumpDuty.flow
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total Dynamic Head (m)</th>
+                                            <td>
+                                                @pumpDuty.head
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+                <!--          <h5>toilet: @pumpSelections.toilet</h5>
+               <h5>apartment: @pumpSelections.apartments</h5>
+               <h5>stories: @pumpSelections.stories</h5>
+               <h5>flow: @pumpDuty.flow</h5>
+               <h5>head: @pumpDuty.head</h5>
+               <h5>pipe width: @pumpSelections.pipewidth</h5>
+               <h5>pipe length: @pumpSelections.pipelength</h5>
+        -->
+
+            </div>
+
 
         </div>
 

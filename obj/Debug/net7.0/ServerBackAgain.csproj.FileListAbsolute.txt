@@ -30,3 +30,4 @@
 /Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Debug/net7.0/ServerBackAgain.pdb
 /Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Debug/net7.0/ServerBackAgain.genruntimeconfig.cache
 /Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Debug/net7.0/ref/ServerBackAgain.dll
+/Users/garycarter/Projects/ServerBackAgainSOL/ServerBackAgain/obj/Debug/net7.0/scopedcss/Pages/PumpCalculater.razor.rz.scp.css
